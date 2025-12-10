@@ -1,17 +1,19 @@
 (async function () {
   const scriptTag = document.currentScript;
 
-  // 1) Eğer data-config varsa, onu kullan
   const rawConfig = scriptTag.getAttribute("data-config");
-  let config = null;
+let config = null;
 
-  if (rawConfig) {
-    try {
-      config = JSON.parse(decodeURIComponent(rawConfig));
-    } catch (e) {
-      console.error("PopupCraft: data-config parse edilemedi", e);
-    }
+if (rawConfig) {
+  try {
+    // Eğer değer zaten düz JSON ise direkt parse et
+    const jsonString = rawConfig.trim();
+    config = JSON.parse(jsonString);
+  } catch (e) {
+    console.error("PopupCraft: data-config parse edilemedi", e);
   }
+}
+
 
   // 2) Yoksa eski sistem: data-popup + API (istersen bırak, istersen sil)
   if (!config) {
