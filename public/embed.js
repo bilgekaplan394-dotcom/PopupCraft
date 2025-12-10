@@ -5,7 +5,7 @@
   if (!popupId) return;
 
   // Config JSON dosyasını çağır
-  const configUrl = `https://popupcraft.app/api/popup/${popupId}`;
+const configUrl = `https://popup-craft.vercel.app/api/popup/${popupId}`;
   const config = await fetch(configUrl).then(res => res.json());
 
   // Popup container oluştur
