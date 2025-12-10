@@ -9,6 +9,8 @@ import {
   AlignLeft,
   Tag,
 } from "lucide-react";
+import { Eye } from "lucide-react";
+
 
 export default function App() {
   const [config, setConfig] = useState({
